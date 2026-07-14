@@ -126,5 +126,19 @@
     "insufficientStock": "Insufficient stock in the source warehouse",
     "invalidTransfer": "Source and destination warehouses must differ",
     "optional": "Optional"
+  },
+  "dashboardPage": {
+    "totalProducts": "Total products",
+    "totalWarehouses": "Warehouses",
+    "lowStockCount": "Low stock items",
+    "stockValue": "Total stock value",
+    "totalStockUnits": "Total stock units",
+    "movementsToday": "Movements today",
+    "lowStockAlerts": "Low stock alerts",
+    "recentActivity": "Recent activity",
+    "movementsTrend": "Movements (last 7 days)",
+    "noLowStock": "No products below their reorder level",
+    "noActivity": "No recent activity",
+    "viewAll": "View all"
   }
 }

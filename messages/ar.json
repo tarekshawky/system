@@ -126,5 +126,19 @@
     "insufficientStock": "الكمية غير كافية في المخزن المصدر",
     "invalidTransfer": "يجب أن يختلف المخزن المصدر عن المخزن الوجهة",
     "optional": "اختياري"
+  },
+  "dashboardPage": {
+    "totalProducts": "إجمالي الأصناف",
+    "totalWarehouses": "المخازن",
+    "lowStockCount": "أصناف منخفضة المخزون",
+    "stockValue": "إجمالي قيمة المخزون",
+    "totalStockUnits": "إجمالي وحدات المخزون",
+    "movementsToday": "حركات اليوم",
+    "lowStockAlerts": "تنبيهات المخزون المنخفض",
+    "recentActivity": "آخر العمليات",
+    "movementsTrend": "الحركات (آخر 7 أيام)",
+    "noLowStock": "لا توجد أصناف أقل من حد إعادة الطلب",
+    "noActivity": "لا توجد عمليات حديثة",
+    "viewAll": "عرض الكل"
   }
 }

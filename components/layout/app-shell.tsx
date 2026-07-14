@@ -22,9 +22,9 @@ export async function AppShell({
         </div>
         <SidebarNav role={role} />
       </aside>
-      <div className="flex min-h-screen flex-1 flex-col">
+      <div className="flex min-h-screen min-w-0 flex-1 flex-col">
         <Topbar appName={t("name")} userName={userName} role={role} />
-        <main className="flex-1 p-4 md:p-6">{children}</main>
+        <main className="min-w-0 flex-1 p-4 md:p-6">{children}</main>
       </div>
     </div>
   );
