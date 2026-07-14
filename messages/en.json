@@ -104,5 +104,27 @@
     "email": "Email",
     "phone": "Phone",
     "address": "Address"
+  },
+  "movementsPage": {
+    "createMovement": "New movement",
+    "type": "Type",
+    "typeIn": "Stock in",
+    "typeOut": "Stock out",
+    "typeTransfer": "Transfer",
+    "typeAdjustment": "Adjustment",
+    "product": "Product",
+    "warehouse": "Warehouse",
+    "destWarehouse": "Destination warehouse",
+    "quantity": "Quantity",
+    "quantityDelta": "Quantity (+/-)",
+    "supplier": "Supplier",
+    "customer": "Customer",
+    "referenceNo": "Reference no.",
+    "note": "Note",
+    "date": "Date",
+    "user": "User",
+    "insufficientStock": "Insufficient stock in the source warehouse",
+    "invalidTransfer": "Source and destination warehouses must differ",
+    "optional": "Optional"
   }
 }

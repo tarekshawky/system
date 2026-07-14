@@ -104,5 +104,27 @@
     "email": "البريد الإلكتروني",
     "phone": "الهاتف",
     "address": "العنوان"
+  },
+  "movementsPage": {
+    "createMovement": "حركة جديدة",
+    "type": "النوع",
+    "typeIn": "إدخال",
+    "typeOut": "إخراج",
+    "typeTransfer": "تحويل بين المخازن",
+    "typeAdjustment": "تسوية",
+    "product": "الصنف",
+    "warehouse": "المخزن",
+    "destWarehouse": "المخزن الوجهة",
+    "quantity": "الكمية",
+    "quantityDelta": "الكمية (+/-)",
+    "supplier": "المورد",
+    "customer": "العميل",
+    "referenceNo": "رقم المرجع",
+    "note": "ملاحظة",
+    "date": "التاريخ",
+    "user": "المستخدم",
+    "insufficientStock": "الكمية غير كافية في المخزن المصدر",
+    "invalidTransfer": "يجب أن يختلف المخزن المصدر عن المخزن الوجهة",
+    "optional": "اختياري"
   }
 }
