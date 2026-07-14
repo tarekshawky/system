@@ -74,5 +74,35 @@
     "editCategory": "تعديل تصنيف",
     "parentCategory": "التصنيف الأب",
     "noParent": "بدون (تصنيف رئيسي)"
+  },
+  "productsPage": {
+    "createProduct": "إضافة صنف",
+    "editProduct": "تعديل صنف",
+    "sku": "رمز الصنف (SKU)",
+    "category": "التصنيف",
+    "unit": "الوحدة",
+    "costPrice": "سعر التكلفة",
+    "sellPrice": "سعر البيع",
+    "reorderLevel": "حد إعادة الطلب",
+    "barcode": "الباركود",
+    "description": "الوصف",
+    "stock": "المخزون",
+    "lowStock": "مخزون منخفض"
+  },
+  "suppliersPage": {
+    "createSupplier": "إضافة مورد",
+    "editSupplier": "تعديل مورد",
+    "contactName": "اسم المسؤول",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "address": "العنوان"
+  },
+  "customersPage": {
+    "createCustomer": "إضافة عميل",
+    "editCustomer": "تعديل عميل",
+    "contactName": "اسم المسؤول",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "address": "العنوان"
   }
 }

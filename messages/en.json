@@ -74,5 +74,35 @@
     "editCategory": "Edit category",
     "parentCategory": "Parent category",
     "noParent": "None (top-level)"
+  },
+  "productsPage": {
+    "createProduct": "Create product",
+    "editProduct": "Edit product",
+    "sku": "SKU",
+    "category": "Category",
+    "unit": "Unit",
+    "costPrice": "Cost price",
+    "sellPrice": "Sell price",
+    "reorderLevel": "Reorder level",
+    "barcode": "Barcode",
+    "description": "Description",
+    "stock": "Stock",
+    "lowStock": "Low stock"
+  },
+  "suppliersPage": {
+    "createSupplier": "Create supplier",
+    "editSupplier": "Edit supplier",
+    "contactName": "Contact name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "customersPage": {
+    "createCustomer": "Create customer",
+    "editCustomer": "Edit customer",
+    "contactName": "Contact name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
   }
 }

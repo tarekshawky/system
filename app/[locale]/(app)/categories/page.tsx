@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
-import { requirePermission } from "@/lib/auth/guard";
+import { requireAuth } from "@/lib/auth/guard";
+import { hasPermission } from "@/lib/auth/permissions";
 import {
   Table,
   TableBody,
@@ -21,7 +22,8 @@ export default async function CategoriesPage({
 }: {
   searchParams: Promise<{ q?: string; page?: string }>;
 }) {
-  await requirePermission("category.write");
+  const user = await requireAuth();
+  const canWrite = hasPermission(user.role, "category.write");
   const { q, page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 
@@ -51,7 +53,7 @@ export default async function CategoriesPage({
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">{t("categories")}</h1>
-        <CategoryFormDialog categories={allCategories} />
+        {canWrite && <CategoryFormDialog categories={allCategories} />}
       </div>
       <SearchInput />
       <div className="rounded-md border">
@@ -82,10 +84,12 @@ export default async function CategoriesPage({
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <CategoryFormDialog
-                    category={category}
-                    categories={allCategories}
-                  />
+                  {canWrite && (
+                    <CategoryFormDialog
+                      category={category}
+                      categories={allCategories}
+                    />
+                  )}
                 </TableCell>
               </TableRow>
             ))}

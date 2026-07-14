@@ -8,3 +8,10 @@ export async function requirePermission(permission: Permission) {
   if (!hasPermission(session.user.role, permission)) forbidden();
   return session.user;
 }
+
+/** For pages any authenticated role may view (read access to master data). */
+export async function requireAuth() {
+  const session = await auth();
+  if (!session?.user) unauthorized();
+  return session.user;
+}
