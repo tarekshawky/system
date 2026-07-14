@@ -44,5 +44,23 @@
     "confirmDelete": "هل أنت متأكد من الحذف؟",
     "createdAt": "تاريخ الإنشاء",
     "language": "اللغة"
+  },
+  "errors": {
+    "unauthorizedTitle": "يلزم تسجيل الدخول",
+    "unauthorizedMessage": "يجب عليك تسجيل الدخول لعرض هذه الصفحة.",
+    "forbiddenTitle": "غير مصرح بالوصول",
+    "forbiddenMessage": "لا تملك صلاحية عرض هذه الصفحة."
+  },
+  "usersPage": {
+    "title": "المستخدمون",
+    "createUser": "إضافة مستخدم",
+    "editUser": "تعديل مستخدم",
+    "role": "الصلاحية",
+    "roleAdmin": "مدير النظام",
+    "roleManager": "مشرف",
+    "roleStaff": "موظف",
+    "passwordOptional": "كلمة المرور (اتركها فارغة للإبقاء كما هي)",
+    "email": "البريد الإلكتروني",
+    "isActive": "مفعّل"
   }
 }

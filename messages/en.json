@@ -44,5 +44,23 @@
     "confirmDelete": "Are you sure you want to delete this?",
     "createdAt": "Created at",
     "language": "Language"
+  },
+  "errors": {
+    "unauthorizedTitle": "Sign-in required",
+    "unauthorizedMessage": "You need to sign in to view this page.",
+    "forbiddenTitle": "Access denied",
+    "forbiddenMessage": "You don't have permission to view this page."
+  },
+  "usersPage": {
+    "title": "Users",
+    "createUser": "Create user",
+    "editUser": "Edit user",
+    "role": "Role",
+    "roleAdmin": "Admin",
+    "roleManager": "Manager",
+    "roleStaff": "Staff",
+    "passwordOptional": "Password (leave blank to keep unchanged)",
+    "email": "Email",
+    "isActive": "Active"
   }
 }

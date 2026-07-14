@@ -1,9 +1,23 @@
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
 import { AppShell } from "@/components/layout/app-shell";
 
-// TODO(Phase 1): replace placeholder user/role with the real session.
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default async function AppLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const session = await auth();
+
+  if (!session?.user) {
+    redirect(`/${locale}/login`);
+  }
+
   return (
-    <AppShell userName="Admin" role="ADMIN">
+    <AppShell userName={session.user.name ?? session.user.email ?? ""} role={session.user.role}>
       {children}
     </AppShell>
   );

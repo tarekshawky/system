@@ -8,12 +8,14 @@ import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { logoutAction } from "@/lib/actions/auth";
 import { LocaleSwitcher } from "./locale-switcher";
 import { SidebarNav } from "./sidebar-nav";
 import type { Role } from "@/lib/generated/prisma/enums";
@@ -22,12 +24,10 @@ export function Topbar({
   appName,
   userName,
   role,
-  onLogout,
 }: {
   appName: string;
   userName?: string;
   role?: Role;
-  onLogout?: () => void;
 }) {
   const t = useTranslations("auth");
   const locale = useLocale();
@@ -70,15 +70,17 @@ export function Topbar({
             <span className="hidden text-sm sm:inline">{userName}</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel className="flex items-center gap-2">
-              <User className="size-4" />
-              {userName}
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={onLogout}>
-              <LogOut className="size-4" />
-              {t("logout")}
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="flex items-center gap-2">
+                <User className="size-4" />
+                {userName}
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => logoutAction(locale)}>
+                <LogOut className="size-4" />
+                {t("logout")}
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
