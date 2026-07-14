@@ -140,5 +140,33 @@
     "noLowStock": "لا توجد أصناف أقل من حد إعادة الطلب",
     "noActivity": "لا توجد عمليات حديثة",
     "viewAll": "عرض الكل"
+  },
+  "reportsPage": {
+    "inventoryValuation": "تقييم المخزون",
+    "movementsReport": "حركات المخزون",
+    "lowStockReport": "المخزون المنخفض",
+    "exportPdf": "تصدير PDF",
+    "exportExcel": "تصدير Excel",
+    "from": "من",
+    "to": "إلى",
+    "sku": "رمز الصنف",
+    "name": "الاسم",
+    "category": "التصنيف",
+    "unit": "الوحدة",
+    "quantity": "الكمية",
+    "costPrice": "سعر التكلفة",
+    "value": "القيمة",
+    "reorderLevel": "حد إعادة الطلب",
+    "date": "التاريخ",
+    "type": "النوع",
+    "warehouse": "المخزن",
+    "referenceNo": "رقم المرجع",
+    "user": "المستخدم",
+    "typeIn": "إدخال",
+    "typeOut": "إخراج",
+    "typeTransfer": "تحويل بين المخازن",
+    "typeAdjustment": "تسوية",
+    "generatedAt": "تاريخ الإنشاء",
+    "totalValue": "إجمالي القيمة"
   }
 }

@@ -140,5 +140,33 @@
     "noLowStock": "No products below their reorder level",
     "noActivity": "No recent activity",
     "viewAll": "View all"
+  },
+  "reportsPage": {
+    "inventoryValuation": "Inventory valuation",
+    "movementsReport": "Stock movements",
+    "lowStockReport": "Low stock",
+    "exportPdf": "Export PDF",
+    "exportExcel": "Export Excel",
+    "from": "From",
+    "to": "To",
+    "sku": "SKU",
+    "name": "Name",
+    "category": "Category",
+    "unit": "Unit",
+    "quantity": "Quantity",
+    "costPrice": "Cost price",
+    "value": "Value",
+    "reorderLevel": "Reorder level",
+    "date": "Date",
+    "type": "Type",
+    "warehouse": "Warehouse",
+    "referenceNo": "Reference no.",
+    "user": "User",
+    "typeIn": "Stock in",
+    "typeOut": "Stock out",
+    "typeTransfer": "Transfer",
+    "typeAdjustment": "Adjustment",
+    "generatedAt": "Generated at",
+    "totalValue": "Total value"
   }
 }
