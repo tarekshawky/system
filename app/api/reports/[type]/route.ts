@@ -14,6 +14,10 @@ import { rowsToExcelBuffer } from "@/lib/reports/excel";
 
 type ReportType = "inventory" | "low-stock" | "movements";
 
+// PDF generation launches a real browser — give it more room than the
+// platform default (10s) on serverless deploys.
+export const maxDuration = 60;
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ type: string }> },
