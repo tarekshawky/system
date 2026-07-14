@@ -168,5 +168,27 @@
     "typeAdjustment": "تسوية",
     "generatedAt": "تاريخ الإنشاء",
     "totalValue": "إجمالي القيمة"
+  },
+  "auditLogPage": {
+    "date": "التاريخ",
+    "user": "المستخدم",
+    "action": "الإجراء",
+    "entityType": "نوع العنصر",
+    "entityId": "معرّف العنصر",
+    "details": "التفاصيل",
+    "viewDetails": "عرض",
+    "before": "قبل",
+    "after": "بعد",
+    "system": "النظام",
+    "actionCreate": "إضافة",
+    "actionUpdate": "تعديل",
+    "actionDelete": "حذف",
+    "actionLogin": "تسجيل دخول",
+    "actionLogout": "تسجيل خروج",
+    "actionStockIn": "إدخال مخزون",
+    "actionStockOut": "إخراج مخزون",
+    "actionStockTransfer": "تحويل مخزون",
+    "actionStockAdjustment": "تسوية مخزون",
+    "actionExport": "تصدير"
   }
 }

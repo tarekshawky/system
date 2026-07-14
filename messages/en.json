@@ -168,5 +168,27 @@
     "typeAdjustment": "Adjustment",
     "generatedAt": "Generated at",
     "totalValue": "Total value"
+  },
+  "auditLogPage": {
+    "date": "Date",
+    "user": "User",
+    "action": "Action",
+    "entityType": "Entity type",
+    "entityId": "Entity ID",
+    "details": "Details",
+    "viewDetails": "View",
+    "before": "Before",
+    "after": "After",
+    "system": "System",
+    "actionCreate": "Create",
+    "actionUpdate": "Update",
+    "actionDelete": "Delete",
+    "actionLogin": "Login",
+    "actionLogout": "Logout",
+    "actionStockIn": "Stock in",
+    "actionStockOut": "Stock out",
+    "actionStockTransfer": "Transfer",
+    "actionStockAdjustment": "Adjustment",
+    "actionExport": "Export"
   }
 }
