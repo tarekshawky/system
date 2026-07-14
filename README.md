@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# نظام إدارة المخازن ومستودعات (Warehouse Management System)
 
-## Getting Started
+Bilingual (Arabic/English) warehouse & inventory management system. Built with Next.js
+(App Router), PostgreSQL + Prisma, and NextAuth.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js 16 (App Router, TypeScript)
+- PostgreSQL + Prisma ORM
+- NextAuth (Auth.js) — credentials login, JWT sessions, role-based access
+- next-intl — Arabic (default, RTL) / English
+- Tailwind CSS + shadcn/ui
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. Copy `.env.example` to `.env` and fill in `DATABASE_URL` (a PostgreSQL connection
+   string) and `AUTH_SECRET` (generate one with `openssl rand -base64 32`).
 
-To learn more about Next.js, take a look at the following resources:
+3. Run migrations and generate the Prisma client:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npx prisma migrate dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Start the dev server:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Open [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+- `app/[locale]/` — localized routes (`ar`/`en`), App Router
+- `app/[locale]/(app)/` — authenticated app shell (sidebar/topbar) and pages
+- `prisma/schema.prisma` — database schema
+- `lib/prisma.ts` — Prisma client singleton (Postgres driver adapter)
+- `i18n/` — next-intl routing/config
+- `messages/` — translation files (`ar.json`, `en.json`)
+- `components/layout/` — app shell (sidebar, topbar, locale switcher)
+- `components/ui/` — shadcn/ui components
+- `proxy.ts` — Next.js 16's renamed `middleware.ts`, handles locale routing (and, from
+  Phase 1, auth route gating)

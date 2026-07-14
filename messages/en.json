@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "Warehouse Management System"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "warehouses": "Warehouses",
+    "categories": "Categories",
+    "products": "Products",
+    "suppliers": "Suppliers",
+    "customers": "Customers",
+    "movements": "Stock Movements",
+    "reports": "Reports",
+    "auditLog": "Audit Log",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "loginTitle": "Sign in to the system",
+    "invalidCredentials": "Invalid email or password"
+  },
+  "common": {
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "actions": "Actions",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "name": "Name",
+    "noResults": "No results found",
+    "loading": "Loading...",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "createdAt": "Created at",
+    "language": "Language"
+  }
+}

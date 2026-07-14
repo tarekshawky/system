@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "نظام إدارة المخازن"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "warehouses": "المخازن",
+    "categories": "التصنيفات",
+    "products": "الأصناف والمنتجات",
+    "suppliers": "الموردون",
+    "customers": "العملاء",
+    "movements": "حركات المخزون",
+    "reports": "التقارير",
+    "auditLog": "سجل العمليات",
+    "users": "المستخدمون",
+    "settings": "الإعدادات"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "loginTitle": "تسجيل الدخول إلى النظام",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
+  },
+  "common": {
+    "create": "إضافة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deactivate": "إلغاء تفعيل",
+    "activate": "تفعيل",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "search": "بحث",
+    "filter": "تصفية",
+    "export": "تصدير",
+    "actions": "إجراءات",
+    "status": "الحالة",
+    "active": "مفعّل",
+    "inactive": "غير مفعّل",
+    "name": "الاسم",
+    "noResults": "لا توجد نتائج",
+    "loading": "جارٍ التحميل...",
+    "confirmDelete": "هل أنت متأكد من الحذف؟",
+    "createdAt": "تاريخ الإنشاء",
+    "language": "اللغة"
+  }
+}

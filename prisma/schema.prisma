@@ -1,0 +1,192 @@
+// Warehouse & Inventory Management System — Prisma schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  STAFF
+}
+
+enum MovementType {
+  IN
+  OUT
+  TRANSFER
+  ADJUSTMENT
+}
+
+enum CounterpartyType {
+  SUPPLIER
+  CUSTOMER
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  STOCK_IN
+  STOCK_OUT
+  STOCK_TRANSFER
+  STOCK_ADJUSTMENT
+  EXPORT
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(STAFF)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  movements StockMovement[]
+  auditLogs AuditLog[]
+}
+
+model Warehouse {
+  id        Int      @id @default(autoincrement())
+  code      String?  @unique
+  name      String
+  location  String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  stocks    Stock[]
+  movements StockMovement[] @relation("MovementWarehouse")
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  parentId  Int?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  parent   Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryTree")
+  products Product[]
+
+  @@index([parentId])
+}
+
+model Product {
+  id           Int      @id @default(autoincrement())
+  sku          String   @unique
+  name         String
+  categoryId   Int
+  unit         String
+  costPrice    Decimal  @db.Decimal(12, 2)
+  sellPrice    Decimal  @db.Decimal(12, 2)
+  reorderLevel Decimal  @default(0) @db.Decimal(12, 3)
+  barcode      String?  @unique
+  description  String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  category  Category        @relation(fields: [categoryId], references: [id])
+  stocks    Stock[]
+  movements StockMovement[]
+
+  @@index([categoryId])
+}
+
+model Stock {
+  productId   Int
+  warehouseId Int
+  quantity    Decimal  @default(0) @db.Decimal(12, 3)
+  updatedAt   DateTime @updatedAt
+
+  product   Product   @relation(fields: [productId], references: [id])
+  warehouse Warehouse @relation(fields: [warehouseId], references: [id])
+
+  @@id([productId, warehouseId])
+  @@index([warehouseId])
+}
+
+model Supplier {
+  id          Int      @id @default(autoincrement())
+  name        String
+  contactName String?
+  email       String?
+  phone       String?
+  address     String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Customer {
+  id          Int      @id @default(autoincrement())
+  name        String
+  contactName String?
+  email       String?
+  phone       String?
+  address     String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model StockMovement {
+  id                 String            @id @default(cuid())
+  type               MovementType
+  productId          Int
+  warehouseId        Int
+  relatedWarehouseId Int?
+  transferGroupId    String?
+  quantity           Decimal           @db.Decimal(12, 3)
+  counterpartyType   CounterpartyType?
+  counterpartyId     Int?
+  referenceNo        String?
+  note               String?
+  userId             String
+  createdAt          DateTime          @default(now())
+
+  product   Product   @relation(fields: [productId], references: [id])
+  warehouse Warehouse @relation("MovementWarehouse", fields: [warehouseId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@index([productId, warehouseId])
+  @@index([createdAt])
+  @@index([transferGroupId])
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  userId     String?
+  action     AuditAction
+  entityType String
+  entityId   String
+  before     Json?
+  after      Json?
+  createdAt  DateTime    @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model Setting {
+  id                       Int      @id @default(1)
+  companyName              String   @default("")
+  companyLogo              String?
+  address                  String?
+  defaultLowStockThreshold Decimal  @default(0) @db.Decimal(12, 3)
+  updatedAt                DateTime @updatedAt
+}
