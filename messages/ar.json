@@ -62,5 +62,17 @@
     "passwordOptional": "كلمة المرور (اتركها فارغة للإبقاء كما هي)",
     "email": "البريد الإلكتروني",
     "isActive": "مفعّل"
+  },
+  "warehousesPage": {
+    "createWarehouse": "إضافة مخزن",
+    "editWarehouse": "تعديل مخزن",
+    "code": "الرمز",
+    "location": "الموقع"
+  },
+  "categoriesPage": {
+    "createCategory": "إضافة تصنيف",
+    "editCategory": "تعديل تصنيف",
+    "parentCategory": "التصنيف الأب",
+    "noParent": "بدون (تصنيف رئيسي)"
   }
 }

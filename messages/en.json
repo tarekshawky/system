@@ -62,5 +62,17 @@
     "passwordOptional": "Password (leave blank to keep unchanged)",
     "email": "Email",
     "isActive": "Active"
+  },
+  "warehousesPage": {
+    "createWarehouse": "Create warehouse",
+    "editWarehouse": "Edit warehouse",
+    "code": "Code",
+    "location": "Location"
+  },
+  "categoriesPage": {
+    "createCategory": "Create category",
+    "editCategory": "Edit category",
+    "parentCategory": "Parent category",
+    "noParent": "None (top-level)"
   }
 }
