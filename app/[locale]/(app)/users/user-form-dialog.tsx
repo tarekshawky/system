@@ -124,6 +124,7 @@ export function UserFormDialog({ user }: { user?: ExistingUser }) {
               <Checkbox
                 id="isActive"
                 name="isActive"
+                key={user?.isActive ? "active" : "inactive"}
                 defaultChecked={user?.isActive}
               />
               <Label htmlFor="isActive">{t("isActive")}</Label>

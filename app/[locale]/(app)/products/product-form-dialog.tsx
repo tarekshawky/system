@@ -188,6 +188,7 @@ export function ProductFormDialog({
               <Checkbox
                 id="isActive"
                 name="isActive"
+                key={product?.isActive ? "active" : "inactive"}
                 defaultChecked={product?.isActive}
               />
               <Label htmlFor="isActive">{tCommon("active")}</Label>

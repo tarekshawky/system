@@ -91,6 +91,7 @@ export function WarehouseFormDialog({
               <Checkbox
                 id="isActive"
                 name="isActive"
+                key={warehouse?.isActive ? "active" : "inactive"}
                 defaultChecked={warehouse?.isActive}
               />
               <Label htmlFor="isActive">{tCommon("active")}</Label>

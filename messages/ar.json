@@ -190,5 +190,12 @@
     "actionStockTransfer": "تحويل مخزون",
     "actionStockAdjustment": "تسوية مخزون",
     "actionExport": "تصدير"
+  },
+  "settingsPage": {
+    "companyName": "اسم الشركة",
+    "companyLogo": "رابط شعار الشركة",
+    "address": "العنوان",
+    "defaultLowStockThreshold": "حد المخزون المنخفض الافتراضي",
+    "saved": "تم حفظ الإعدادات"
   }
 }

@@ -1,50 +1,95 @@
 # نظام إدارة المخازن ومستودعات (Warehouse Management System)
 
-Bilingual (Arabic/English) warehouse & inventory management system. Built with Next.js
-(App Router), PostgreSQL + Prisma, and NextAuth.
+Bilingual (Arabic/English) MVP for warehouse & inventory management: multi-warehouse stock
+tracking, products/categories, suppliers/customers, stock movements (in/out/transfer/
+adjustment) with low-stock alerts, a dashboard, PDF/Excel reports, role-based access
+control, and an audit log.
 
-## Stack
+## Stack & why
 
-- Next.js 16 (App Router, TypeScript)
-- PostgreSQL + Prisma ORM
-- NextAuth (Auth.js) — credentials login, JWT sessions, role-based access
-- next-intl — Arabic (default, RTL) / English
-- Tailwind CSS + shadcn/ui
+- **Next.js 16** (App Router, TypeScript) — full-stack in one codebase, fast to build and
+  deploy for an MVP.
+- **PostgreSQL + Prisma ORM** — a robust, scalable relational database matches the
+  transactional nature of stock movements (see `lib/actions/movements.ts`, which wraps
+  every quantity change in a DB transaction).
+- **NextAuth (Auth.js)** — credentials login with JWT sessions and role-based access
+  (Admin / Manager / Staff).
+- **next-intl** — Arabic (default, RTL) and English, fully bilingual UI.
+- **Tailwind CSS + shadcn/ui** — consistent, accessible UI components, responsive out of
+  the box.
+- **Playwright** (rendering an HTML template) for PDF export — chosen over
+  `@react-pdf/renderer` because it uses a real browser text engine, which shapes Arabic
+  text correctly; **exceljs** for Excel export.
+
+## Prerequisites
+
+- Node.js 20.9+ and npm
+- A PostgreSQL 14+ database (local or hosted)
 
 ## Getting started
 
-1. Install dependencies:
+1. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Copy `.env.example` to `.env` and fill in `DATABASE_URL` (a PostgreSQL connection
-   string) and `AUTH_SECRET` (generate one with `openssl rand -base64 32`).
+2. **Install the Chromium browser used for PDF export** (one-time, downloads ~200MB):
 
-3. Run migrations and generate the Prisma client:
+   ```bash
+   npx playwright install chromium
+   ```
+
+3. **Configure environment variables.** Copy `.env.example` to `.env` and fill in:
+   - `DATABASE_URL` — a PostgreSQL connection string, e.g.
+     `postgresql://user:password@localhost:5432/warehouse_mvp?schema=public`
+   - `AUTH_SECRET` — generate one with `openssl rand -base64 32`
+   - `NEXTAUTH_URL` — `http://localhost:3000` for local dev
+
+4. **Run migrations** (creates all tables):
 
    ```bash
    npx prisma migrate dev
    ```
 
-4. Start the dev server:
+5. **Seed demo data** (an admin/manager/staff user, a warehouse, a category, and a
+   product):
+
+   ```bash
+   npx prisma db seed
+   ```
+
+   Demo accounts (all use password `password123`):
+
+   | Email | Role |
+   |---|---|
+   | admin@example.com | Admin |
+   | manager@example.com | Manager |
+   | staff@example.com | Staff |
+
+6. **Start the dev server:**
 
    ```bash
    npm run dev
    ```
 
-   Open [http://localhost:3000](http://localhost:3000).
+   Open [http://localhost:3000](http://localhost:3000) — it redirects to `/ar` or `/en`
+   based on your browser's language, then to the login page.
 
-## Project structure
+## Building for production
 
-- `app/[locale]/` — localized routes (`ar`/`en`), App Router
-- `app/[locale]/(app)/` — authenticated app shell (sidebar/topbar) and pages
-- `prisma/schema.prisma` — database schema
-- `lib/prisma.ts` — Prisma client singleton (Postgres driver adapter)
-- `i18n/` — next-intl routing/config
-- `messages/` — translation files (`ar.json`, `en.json`)
-- `components/layout/` — app shell (sidebar, topbar, locale switcher)
-- `components/ui/` — shadcn/ui components
-- `proxy.ts` — Next.js 16's renamed `middleware.ts`, handles locale routing (and, from
-  Phase 1, auth route gating)
+```bash
+npm run build
+npm start
+```
+
+Set `DATABASE_URL`, `AUTH_SECRET`, and `NEXTAUTH_URL` (your production domain) in the
+deployment environment. Run `npx prisma migrate deploy` against the production database
+before starting the app. The PDF export route needs the Playwright Chromium browser
+available at runtime — run `npx playwright install chromium --with-deps` on the deploy
+target (or use a Docker base image that includes it).
+
+## Documentation
+
+See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for the folder layout, the
+data model, the permission matrix, and the API route reference.

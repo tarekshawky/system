@@ -116,6 +116,7 @@ export function CategoryFormDialog({
               <Checkbox
                 id="isActive"
                 name="isActive"
+                key={category?.isActive ? "active" : "inactive"}
                 defaultChecked={category?.isActive}
               />
               <Label htmlFor="isActive">{tCommon("active")}</Label>

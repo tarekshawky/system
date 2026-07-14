@@ -190,5 +190,12 @@
     "actionStockTransfer": "Transfer",
     "actionStockAdjustment": "Adjustment",
     "actionExport": "Export"
+  },
+  "settingsPage": {
+    "companyName": "Company name",
+    "companyLogo": "Company logo URL",
+    "address": "Address",
+    "defaultLowStockThreshold": "Default low-stock threshold",
+    "saved": "Settings saved"
   }
 }
