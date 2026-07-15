@@ -23,7 +23,7 @@ export default async function CategoriesPage({
   searchParams: Promise<{ q?: string; page?: string }>;
 }) {
   const user = await requireAuth();
-  const canWrite = hasPermission(user.role, "category.write");
+  const canWrite = await hasPermission(user.role, "category.write");
   const { q, page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 

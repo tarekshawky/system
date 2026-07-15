@@ -24,8 +24,8 @@ export default async function ProductsPage({
   searchParams: Promise<{ q?: string; page?: string; categoryId?: string }>;
 }) {
   const user = await requireAuth();
-  const canWrite = hasPermission(user.role, "product.write");
-  const canViewCost = hasPermission(user.role, "cost.view");
+  const canWrite = await hasPermission(user.role, "product.write");
+  const canViewCost = await hasPermission(user.role, "cost.view");
   const { q, page: pageParam, categoryId } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 

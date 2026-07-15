@@ -42,6 +42,32 @@ async function main() {
     },
   });
 
+  // Seed Manager/Staff permission overrides to match lib/auth/permissions.ts's
+  // DEFAULT_PERMISSIONS, so behavior is unchanged until an Admin edits them
+  // in Settings. Kept as plain data here (not imported) so this script has
+  // no dependency on path aliases that tsx may not resolve.
+  const defaultRolePermissions: [string, Role[]][] = [
+    ["warehouse.write", [Role.MANAGER]],
+    ["category.write", [Role.MANAGER]],
+    ["product.write", [Role.MANAGER]],
+    ["supplier.write", [Role.MANAGER]],
+    ["customer.write", [Role.MANAGER]],
+    ["movement.inout.create", [Role.MANAGER, Role.STAFF]],
+    ["movement.transfer.create", [Role.MANAGER]],
+    ["movement.adjustment.create", [Role.MANAGER]],
+    ["report.view", [Role.MANAGER, Role.STAFF]],
+    ["cost.view", [Role.MANAGER]],
+  ];
+  for (const [permission, allowedRoles] of defaultRolePermissions) {
+    for (const role of [Role.MANAGER, Role.STAFF]) {
+      await prisma.rolePermission.upsert({
+        where: { role_permission: { role, permission } },
+        update: {},
+        create: { role, permission, allowed: allowedRoles.includes(role) },
+      });
+    }
+  }
+
   await prisma.setting.upsert({
     where: { id: 1 },
     update: {},

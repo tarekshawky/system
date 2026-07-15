@@ -67,7 +67,7 @@ function ExportButtons({
 
 export default async function ReportsPage() {
   const user = await requireAuth();
-  const canViewCost = hasPermission(user.role, "cost.view");
+  const canViewCost = await hasPermission(user.role, "cost.view");
   const locale = await getLocale();
 
   const t = await getTranslations("reportsPage");

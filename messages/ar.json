@@ -22,7 +22,7 @@
     "password": "كلمة المرور",
     "loginTitle": "تسجيل الدخول إلى النظام",
     "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
-    "testAccounts": "حسابات تجريبية (كلمة المرور: password123)"
+    "testAccounts": "حسابات تجريبية"
   },
   "common": {
     "create": "إضافة",
@@ -197,6 +197,19 @@
     "companyLogo": "رابط شعار الشركة",
     "address": "العنوان",
     "defaultLowStockThreshold": "حد المخزون المنخفض الافتراضي",
-    "saved": "تم حفظ الإعدادات"
+    "saved": "تم حفظ الإعدادات",
+    "rolePermissions": "صلاحيات الأدوار",
+    "rolePermissionsHint": "تحكم بما يمكن لحسابات المشرف والموظف فعله. مدير النظام يملك دائمًا صلاحية كاملة — إدارة المستخدمين وسجل العمليات وهذه الإعدادات لا يمكن منحها لدور آخر.",
+    "permission": "الصلاحية",
+    "permission_warehouse_write": "إضافة/تعديل المخازن",
+    "permission_category_write": "إضافة/تعديل التصنيفات",
+    "permission_product_write": "إضافة/تعديل الأصناف",
+    "permission_supplier_write": "إضافة/تعديل الموردين",
+    "permission_customer_write": "إضافة/تعديل العملاء",
+    "permission_movement_inout_create": "تسجيل حركات الإدخال/الإخراج",
+    "permission_movement_transfer_create": "تسجيل التحويل بين المخازن",
+    "permission_movement_adjustment_create": "تسجيل التسويات",
+    "permission_report_view": "عرض التقارير",
+    "permission_cost_view": "عرض أسعار التكلفة"
   }
 }

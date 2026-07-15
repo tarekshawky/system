@@ -28,7 +28,7 @@ function startOfDay(d: Date) {
 
 export default async function DashboardPage() {
   const user = await requireAuth();
-  const canViewCost = hasPermission(user.role, "cost.view");
+  const canViewCost = await hasPermission(user.role, "cost.view");
 
   const t = await getTranslations("dashboardPage");
   const tNav = await getTranslations("nav");

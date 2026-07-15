@@ -22,7 +22,7 @@
     "password": "Password",
     "loginTitle": "Sign in to the system",
     "invalidCredentials": "Invalid email or password",
-    "testAccounts": "Test accounts (password: password123)"
+    "testAccounts": "Demo accounts"
   },
   "common": {
     "create": "Create",
@@ -197,6 +197,19 @@
     "companyLogo": "Company logo URL",
     "address": "Address",
     "defaultLowStockThreshold": "Default low-stock threshold",
-    "saved": "Settings saved"
+    "saved": "Settings saved",
+    "rolePermissions": "Role permissions",
+    "rolePermissionsHint": "Control what Manager and Staff accounts can do. Admin always has full access — user management, the audit log, and these settings can't be handed to another role.",
+    "permission": "Permission",
+    "permission_warehouse_write": "Create/edit warehouses",
+    "permission_category_write": "Create/edit categories",
+    "permission_product_write": "Create/edit products",
+    "permission_supplier_write": "Create/edit suppliers",
+    "permission_customer_write": "Create/edit customers",
+    "permission_movement_inout_create": "Record stock in/out",
+    "permission_movement_transfer_create": "Record warehouse transfers",
+    "permission_movement_adjustment_create": "Record stock adjustments",
+    "permission_report_view": "View reports",
+    "permission_cost_view": "View cost prices"
   }
 }

@@ -190,3 +190,14 @@ model Setting {
   defaultLowStockThreshold Decimal  @default(0) @db.Decimal(12, 3)
   updatedAt                DateTime @updatedAt
 }
+
+// Admin-editable overrides for what Manager/Staff can do. Admin itself is
+// never stored here — it always has every permission, non-negotiably.
+model RolePermission {
+  role       Role
+  permission String
+  allowed    Boolean  @default(false)
+  updatedAt  DateTime @updatedAt
+
+  @@id([role, permission])
+}

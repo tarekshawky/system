@@ -23,7 +23,7 @@ export default async function WarehousesPage({
   searchParams: Promise<{ q?: string; page?: string }>;
 }) {
   const user = await requireAuth();
-  const canWrite = hasPermission(user.role, "warehouse.write");
+  const canWrite = await hasPermission(user.role, "warehouse.write");
   const { q, page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 

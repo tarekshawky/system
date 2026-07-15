@@ -23,7 +23,7 @@ export default async function SuppliersPage({
   searchParams: Promise<{ q?: string; page?: string }>;
 }) {
   const user = await requireAuth();
-  const canWrite = hasPermission(user.role, "supplier.write");
+  const canWrite = await hasPermission(user.role, "supplier.write");
   const { q, page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 

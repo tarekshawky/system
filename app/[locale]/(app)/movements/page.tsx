@@ -32,12 +32,15 @@ export default async function MovementsPage({
   const { type, warehouseId, page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam) || 1);
 
+  const [canInOut, canTransfer, canAdjust] = await Promise.all([
+    hasPermission(user.role, "movement.inout.create"),
+    hasPermission(user.role, "movement.transfer.create"),
+    hasPermission(user.role, "movement.adjustment.create"),
+  ]);
   const allowedTypes = TYPE_ORDER.filter((t) => {
-    if (t === "IN" || t === "OUT")
-      return hasPermission(user.role, "movement.inout.create");
-    if (t === "TRANSFER")
-      return hasPermission(user.role, "movement.transfer.create");
-    return hasPermission(user.role, "movement.adjustment.create");
+    if (t === "IN" || t === "OUT") return canInOut;
+    if (t === "TRANSFER") return canTransfer;
+    return canAdjust;
   });
 
   const where = {
