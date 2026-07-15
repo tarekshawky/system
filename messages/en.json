@@ -44,7 +44,8 @@
     "loading": "Loading...",
     "confirmDelete": "Are you sure you want to delete this?",
     "createdAt": "Created at",
-    "language": "Language"
+    "language": "Language",
+    "saveFailed": "Failed to save. Please try again."
   },
   "errors": {
     "unauthorizedTitle": "Sign-in required",

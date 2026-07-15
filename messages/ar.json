@@ -44,7 +44,8 @@
     "loading": "جارٍ التحميل...",
     "confirmDelete": "هل أنت متأكد من الحذف؟",
     "createdAt": "تاريخ الإنشاء",
-    "language": "اللغة"
+    "language": "اللغة",
+    "saveFailed": "فشل الحفظ. يرجى المحاولة مرة أخرى."
   },
   "errors": {
     "unauthorizedTitle": "يلزم تسجيل الدخول",
