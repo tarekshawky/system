@@ -21,7 +21,8 @@
     "email": "Email",
     "password": "Password",
     "loginTitle": "Sign in to the system",
-    "invalidCredentials": "Invalid email or password"
+    "invalidCredentials": "Invalid email or password",
+    "testAccounts": "Test accounts (password: password123)"
   },
   "common": {
     "create": "Create",

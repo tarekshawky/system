@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { loginAction } from "@/lib/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -15,11 +15,28 @@ import {
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
+const DEMO_ACCOUNTS = [
+  { email: "admin@example.com", roleKey: "roleAdmin" },
+  { email: "manager@example.com", roleKey: "roleManager" },
+  { email: "staff@example.com", roleKey: "roleStaff" },
+] as const;
+
 export function LoginForm() {
   const t = useTranslations("auth");
   const tApp = useTranslations("app");
+  const tUsers = useTranslations("usersPage");
   const locale = useLocale();
   const [state, formAction, pending] = useActionState(loginAction, undefined);
+
+  function quickLogin(email: string) {
+    const formData = new FormData();
+    formData.set("email", email);
+    formData.set("password", "password123");
+    formData.set("locale", locale);
+    startTransition(() => {
+      formAction(formData);
+    });
+  }
 
   return (
     <Card className="w-full max-w-sm">
@@ -59,6 +76,24 @@ export function LoginForm() {
             {t("login")}
           </Button>
         </form>
+
+        <div className="mt-6 flex flex-col gap-2 border-t pt-4">
+          <p className="text-xs text-muted-foreground">{t("testAccounts")}</p>
+          <div className="flex flex-wrap gap-2">
+            {DEMO_ACCOUNTS.map((account) => (
+              <Button
+                key={account.email}
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={pending}
+                onClick={() => quickLogin(account.email)}
+              >
+                {tUsers(account.roleKey)}
+              </Button>
+            ))}
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
